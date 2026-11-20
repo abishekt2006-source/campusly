@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: 99 102 241;
+  }
+
+  body {
+    @apply bg-[#0a0d14] text-slate-100 overflow-x-hidden font-sans;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  /* Custom Clean Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-slate-800 rounded-full hover:bg-slate-700 transition-colors;
+  }
+}
+
+@layer components {
+  /* Glassmorphism panel */
+  .glass-panel {
+    @apply bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 shadow-xl;
+  }
+
+  .glass-card {
+    @apply bg-[#121824]/80 backdrop-blur-md border border-[#232d42] hover:border-indigo-500/40 transition-all duration-300;
+  }
+
+  .glass-input {
+    @apply bg-[#151d2d]/90 border border-[#232d42] focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 text-slate-100 placeholder-slate-500 transition-all outline-none;
+  }
+
+  /* Story gradient ring (Snapchat / Instagram hybrid) */
+  .story-ring-active {
+    background: linear-gradient(45deg, #f59e0b, #ec4899, #8b5cf6, #3b82f6);
+    padding: 2.5px;
+    border-radius: 9999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    animation: rotateGradient 6s linear infinite;
+  }
+
+  .story-ring-viewed {
+    background: #334155;
+    padding: 2.5px;
+    border-radius: 9999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Glowing button */
+  .btn-primary {
+    @apply relative inline-flex items-center justify-center px-5 py-2.5 rounded-xl font-medium text-white 
+           bg-gradient-to-r from-indigo-600 via-indigo-500 to-purple-600 
+           hover:from-indigo-500 hover:to-purple-500 shadow-lg shadow-indigo-600/30 
+           hover:shadow-indigo-500/50 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-4 py-2.5 rounded-xl font-medium text-slate-300 
+           bg-[#1b2333] hover:bg-[#232d42] hover:text-white border border-[#2e3b56] 
+           transition-all duration-200 active:scale-[0.98] disabled:opacity-50;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center px-3 py-2 rounded-xl text-slate-400 
+           hover:text-slate-100 hover:bg-slate-800/60 transition-colors;
+  }
+}
